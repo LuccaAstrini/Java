@@ -43,9 +43,10 @@ public class GerenciaAlunos {
     // Apenas para fins de teste e exemplificação
     public static void main(String[] args) {
         GerenciaAlunos gerencia = new GerenciaAlunos();
-        gerencia.cadastraAluno(new Aluno("João",123));
-        gerencia.cadastraAluno(new Aluno("Maria",123));
-        gerencia.cadastraAluno(new Aluno("João",345));
+        Curso curso = new Curso("Eng de Soft", 4,"noturno");
+        gerencia.cadastraAluno(new Aluno("João",123), curso);
+        gerencia.cadastraAluno(new Aluno("Maria",123), curso);
+        gerencia.cadastraAluno(new Aluno("João",345), curso);
         
         System.out.println("Alunos cadastrados:"+
                 gerencia.getAlunos());
