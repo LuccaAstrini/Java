@@ -5,7 +5,8 @@
 package model;
 
 import java.util.Collection;
-import java.util.TreeSet;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -15,19 +16,25 @@ public class GerenciaAlunos {
     
     //Exemplos de Collections
     Collection colecao = null;
+    Map associacao = null;
     
     public GerenciaAlunos(){
        //Se a colecao for List ou Set
        //Caso escolha List: opte por ArrayList, 
        //                  LinkedList ou Vector
        //Caso escolha Set: opte por HashSet ou TreeSet
-       colecao = new TreeSet();
+      // colecao = new TreeSet();
+      associacao = new HashMap<Aluno,Curso>();
     }
     public boolean cadastraAluno(Aluno aluno){
      
         return colecao.add(aluno);
        
     } 
+    
+    public boolean cadastraAluno(Aluno aluno, Curso curso){
+        return (associacao.put(aluno, curso)!=null);
+    }
     
     public Collection getAlunos(){
         return colecao;

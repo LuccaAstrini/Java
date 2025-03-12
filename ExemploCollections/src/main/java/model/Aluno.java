@@ -74,7 +74,7 @@ public class Aluno implements Comparable{
         if(compRa!=0){
             return compRa;
         }
-        return this.nome.compareTo(((Aluno)o).nome);
+        return (-1) * this.nome.compareTo(((Aluno)o).nome);
     }
     
      
