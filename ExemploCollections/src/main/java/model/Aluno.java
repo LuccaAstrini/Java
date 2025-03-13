@@ -38,7 +38,7 @@ public class Aluno implements Comparable{
 
     @Override
     public String toString() {
-        return "nome=" + nome + ", ra=" + ra ;
+        return "\nnome=" + nome + ", ra=" + ra ;
     }
 
     @Override
@@ -74,7 +74,7 @@ public class Aluno implements Comparable{
         if(compRa!=0){
             return compRa;
         }
-        return (-1) * this.nome.compareTo(((Aluno)o).nome);
+        return this.nome.compareToIgnoreCase(((Aluno)o).nome);
     }
     
      

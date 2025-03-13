@@ -10,7 +10,7 @@ import java.util.Objects;
  *
  * @author cimam
  */
-public class Curso {
+public class Curso implements Comparable{
     private String nome;
     private int duracao;
     private String turno;
@@ -78,6 +78,11 @@ public class Curso {
             return false;
         }
         return Objects.equals(this.turno, other.turno);
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return nome.compareToIgnoreCase(((Curso)o).nome);
     }
     
     
