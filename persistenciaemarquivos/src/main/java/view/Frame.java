@@ -121,7 +121,7 @@ public class Frame extends javax.swing.JFrame {
         
         try{
         new ProdutoController().grava(cod, desc, Double.parseDouble(preco), Integer.parseInt(estoque));
-        JOptionPane.showInputDialog(rootPane, "Cadastrou");
+        JOptionPane.showConfirmDialog(rootPane, "Cadastrou");
         }catch(IOException ex) {
             JOptionPane.showMessageDialog(rootPane, "erro ao cadastrar"+ex.getMessage());
             Logger.getLogger(Frame.class.getName()).log(Level.SEVERE, null, ex);
