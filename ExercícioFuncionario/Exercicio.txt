@@ -1,0 +1,7 @@
+*Usar Swing, MVC, DAO para construir um programa em java para gerenciar o cadastro de Funcionários(códigos, nome e salário)
+*ao iniciar o programa: ler todos os funcionários cadastrados e mantê-los em memória.
+*Prover funções para:
+-cadastrar na Coleção.
+-listar funcionários da coleção.
+-Buscar funcionário da Coleção.
+-Sair, gravando em arquivo os dados da Coleção.
