@@ -1,15 +1,20 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package model;
 
 import java.util.Objects;
 
+/**
+ *
+ * @author cimam
+ */
 public class Produto {
     private String codigo;
     private String desc;
     private double valor;
     private int quantEstoque;
-
-    public Produto() {
-    }
 
     public Produto(String codigo, String desc, double valor, int quantEstoque) {
         this.codigo = codigo;
@@ -17,7 +22,10 @@ public class Produto {
         this.valor = valor;
         this.quantEstoque = quantEstoque;
     }
-    
+
+    public Produto() {
+    }
+
     public String getCodigo() {
         return codigo;
     }
@@ -52,16 +60,16 @@ public class Produto {
 
     @Override
     public String toString() {
-        return codigo + "\n" 
-                + desc + "\n" 
-                + valor + "\n" + 
-                quantEstoque + "\n";
+        return codigo + "\n" + 
+               desc + "\n" + 
+               valor + "\n" + 
+               quantEstoque + "\n";
     }
 
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 11 * hash + Objects.hashCode(this.codigo);
+        hash = 59 * hash + Objects.hashCode(this.codigo);
         return hash;
     }
 
