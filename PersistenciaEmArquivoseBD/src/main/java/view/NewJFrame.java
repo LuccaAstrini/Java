@@ -16,12 +16,13 @@ import javax.swing.JOptionPane;
  * @author cimam
  */
 public class NewJFrame extends javax.swing.JFrame {
-
+    private ProdutoController controle = null;
     /**
      * Creates new form NewJFrame
      */
     public NewJFrame() {
         initComponents();
+        controle = new ProdutoController();
     }
 
     /**
@@ -170,7 +171,7 @@ public class NewJFrame extends javax.swing.JFrame {
 
         try {
             //
-            new ProdutoController().grava(cod, des,
+            controle.grava(cod, des,
                     Double.parseDouble(preco),
                     Integer.parseInt(estoque));
             JOptionPane.showMessageDialog(rootPane,

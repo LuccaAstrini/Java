@@ -21,7 +21,6 @@ public class ProdutoController {
         Produto produto = new Produto(cod,desc,preco,estoque);
         new ProdutoDAO("produtos.txt").grava(produto);
         new ProdutoDAO().gravaEmBanco(produto);
-        
     }
     
 }

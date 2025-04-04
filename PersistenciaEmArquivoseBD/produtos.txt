@@ -13,3 +13,20 @@ jao
 12555.0
 1
 
+10
+Batata
+50.0
+1000
+
+0
+5
+Feijão em Lata
+35.45
+100
+
+0
+4
+Saco de arroz
+60.0
+60
+

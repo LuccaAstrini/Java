@@ -11,16 +11,34 @@ import java.util.Objects;
  * @author cimam
  */
 public class Produto {
+
     private String codigo;
     private String desc;
     private double valor;
     private int quantEstoque;
+    private int codProd;
 
     public Produto(String codigo, String desc, double valor, int quantEstoque) {
         this.codigo = codigo;
         this.desc = desc;
         this.valor = valor;
         this.quantEstoque = quantEstoque;
+    }
+
+    public Produto(String codigo, String desc, double valor, int quantEstoque, int codProd) {
+        this.codigo = codigo;
+        this.desc = desc;
+        this.valor = valor;
+        this.quantEstoque = quantEstoque;
+        this.codProd = codProd;
+    }
+
+    public int getCodProd() {
+        return codProd;
+    }
+
+    public void setCodProd(int codProd) {
+        this.codProd = codProd;
     }
 
     public Produto() {
@@ -60,10 +78,11 @@ public class Produto {
 
     @Override
     public String toString() {
-        return codigo + "\n" + 
-               desc + "\n" + 
-               valor + "\n" + 
-               quantEstoque + "\n";
+        return codProd + "\n"
+                + codigo + "\n"
+                + desc + "\n"
+                + valor + "\n"
+                + quantEstoque + "\n";
     }
 
     @Override
@@ -87,7 +106,5 @@ public class Produto {
         final Produto other = (Produto) obj;
         return Objects.equals(this.codigo, other.codigo);
     }
-    
-    
-    
+
 }

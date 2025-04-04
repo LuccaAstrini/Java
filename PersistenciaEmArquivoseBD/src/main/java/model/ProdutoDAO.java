@@ -12,6 +12,7 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Collection;
 import java.util.Scanner;
@@ -83,6 +84,32 @@ public class ProdutoDAO {
 
     }
 
+    public Produto recuperaEmBanco(String codigo) throws SQLException {
+        //Avalirar se a conexão está ativa
+        if (con != null) {
+            String sql = "select codProd,descricao, valor, quantEstoque, "
+                    + "codigo from produto where codigo =?";
+            //Construir o comando sql com seus parâmetros
+            PreparedStatement comando = con.prepareStatement(sql);
+            comando.setString(1, codigo);
+
+            //executar o comando sql para obter os resultados
+            ResultSet resultado = comando.executeQuery();
+
+            //Observar se há tupla retornada
+            if (resultado.next()) {
+                Produto prod = new Produto();
+                prod.setCodProd(resultado.getInt("codProd"));
+                prod.setCodigo(resultado.getString("codigo"));
+                prod.setDesc(resultado.getString("descricao"));
+                prod.setValor(resultado.getDouble("Valor"));
+                prod.setQuantEstoque(resultado.getInt("QuantEstoque"));
+                return prod;
+            }
+        }
+        return null;
+    }
+
     public Produto recupera(String codigo)
             throws FileNotFoundException {
         FileReader arquivoIn = new FileReader("produtos.txt");
@@ -109,6 +136,11 @@ public class ProdutoDAO {
         return null;
     }
 
+    //método para encerra a conexão
+    public void fechaConexao() throws SQLException{
+        con.close();
+    }
+    
     public static void main(String[] args) {
         try {
             /*try {
@@ -127,9 +159,11 @@ public class ProdutoDAO {
             
             }*/
 
-            new ProdutoDAO();
+            //selecionar um produto
+            Produto prod = new ProdutoDAO().recuperaEmBanco("10");
+
             JOptionPane.showMessageDialog(null,
-                    "Conexão efetuada");
+                    prod==null?"não há produto com esse codigo":prod);
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null,
                     "Reveja os parâmetros da conexão"
