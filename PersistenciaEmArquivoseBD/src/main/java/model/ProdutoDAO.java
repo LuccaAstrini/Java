@@ -80,7 +80,20 @@ public class ProdutoDAO {
 
     }
 
-    public void gravaTodos(Collection<Produto> produtos) {
+    public void gravaTodos(Collection<Produto> produtos) throws IOException {
+        FileWriter file;
+
+        PrintWriter out;
+
+        file = new FileWriter("funcionarios.txt");
+
+        out = new PrintWriter(file);
+
+        for (Produto tempFuncionario : produtos) {
+            out.println(tempFuncionario.getCodigo());
+            out.println(tempFuncionario.getDesc());
+            out.println(tempFuncionario.getValor());
+        }
 
     }
 
@@ -137,10 +150,10 @@ public class ProdutoDAO {
     }
 
     //método para encerra a conexão
-    public void fechaConexao() throws SQLException{
+    public void fechaConexao() throws SQLException {
         con.close();
     }
-    
+
     public static void main(String[] args) {
         try {
             /*try {
@@ -163,7 +176,7 @@ public class ProdutoDAO {
             Produto prod = new ProdutoDAO().recuperaEmBanco("10");
 
             JOptionPane.showMessageDialog(null,
-                    prod==null?"não há produto com esse codigo":prod);
+                    prod == null ? "não há produto com esse codigo" : prod);
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null,
                     "Reveja os parâmetros da conexão"
