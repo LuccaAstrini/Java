@@ -4,12 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class Exercicio {
+public class ExercicioOptimal {
 
     public static void main(String[] args) {
          List<String> nomes = new ArrayList<>();
          
-        nome.add("Lucca", null, "Gustavo", null, "Umzeae", null);
+        nomes.add("Lucca");
+        nomes.add(null);
+        nomes.add("Gustavo");
+        nomes.add(null);
+        nomes.add("Mateus");
         
         for(String nome:nomes){
             
