@@ -3,6 +3,7 @@ package com.mycompany.exercicio;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Stream;
 
 public class ExercicioOptimal {
 
@@ -47,5 +48,10 @@ public class ExercicioOptimal {
         alunos.stream()
              .map(Optional::ofNullable)
              .forEach(opt -> opt.ifPresent(System.out::println));
+        
+        //Outro método de fazer o 3
+        Stream<String> st = nomes.stream();
+        st.map(Optional::ofNullable).filter(Optional::isPresent)
+        .forEach(opt -> System.out.println(opt.get()));
     }
 }
